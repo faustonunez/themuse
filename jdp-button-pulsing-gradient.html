@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 1440px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .custom-button {
+        background: linear-gradient(
+          90deg,
+          #f17b55 16.44%,
+          #3e5aab 51.46%,
+          #194dad 82.97%
+        );
+        background-size: 200% 200%; /* Double the background size for animation */
+        color: white; /* White text */
+        padding: 20px 30px; /* Padding for the button */
+        font-family: "Nunito Sans", sans-serif; /* Nunito Sans font */
+        font-size: 12px; /* Font size */
+        font-weight: bold; /* Bold text */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        text-align: center; /* Center the text */
+        display: inline-block; /* Inline-block display */
+        text-transform: uppercase; /* Uppercase text */
+        letter-spacing: 1px; /* Letter spacing */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+        position: absolute; /* Absolute positioning */
+        top: 3.8%; /* Adjust as needed to position the button */
+        left: 74.5%; /* Center the button horizontally */
+        transform: translate(-50%, -50%); /* Center the button */
+        width: 296px; /* Fixed width for the button */
+        animation: gradientAnimation 4s linear infinite; /* Gradient animation */
+      }
+
+      .custom-button:hover {
+        background-color: #14203f; /* Darker shade on hover */
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .image-container {
+        position: relative; /* Ensure container is positioned relative */
+      }
+
+      .image-container img {
+        width: 1440px;
+        display: block; /* Ensure the image is treated as a block element */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="JDP-1440.png" alt="JDP-1440" />
+      <button class="custom-button">Apply on Company Site</button>
+    </div>
+  </body>
+</html>
