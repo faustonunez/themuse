@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Web Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        width: 1440px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .custom-button {
+        background: linear-gradient(
+          90deg,
+          #1f2a55 16.44%,
+          #1f2a55 51.46%,
+          #1f2a55 82.97%
+        ); /* Dark blue gradient */
+        color: white; /* White text */
+        padding: 20px 30px; /* Padding for the button */
+        font-family: "Nunito Sans", sans-serif; /* Nunito Sans font */
+        font-size: 12px; /* Font size */
+        font-weight: bold; /* Bold text */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        text-align: center; /* Center the text */
+        display: inline-block; /* Inline-block display */
+        text-transform: uppercase; /* Uppercase text */
+        letter-spacing: 1px; /* Letter spacing */
+        position: absolute; /* Absolute positioning */
+        top: 3.8%; /* Adjust as needed to position the button */
+        left: 74.5%; /* Center the button horizontally */
+        transform: translate(-50%, -50%); /* Center the button */
+        width: 296px; /* Fixed width for the button */
+        box-shadow: 0 0 0 0 rgba(31, 42, 85, 0.5); /* Initial shadow */
+        animation: pulse 1.5s infinite; /* Add pulsing animation */
+        transition: transform 0.6s ease, background 0.7s ease, box-shadow 0.3s;
+        background-size: 200% 200%; /* Background size for gradient animation */
+      }
+
+      .custom-button::before,
+      .custom-button::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 60px;
+        background: rgba(255, 255, 255, 0.5);
+        filter: blur(30px);
+        transform: translateX(-100px) skewX(-15deg);
+        transition: transform 0.7s ease;
+      }
+
+      .custom-button::after {
+        width: 30px;
+        background: rgba(255, 255, 255, 0.2);
+        filter: blur(5px);
+      }
+
+      .custom-button:hover {
+        background: linear-gradient(
+          90deg,
+          #1f2a55 16.44%,
+          #1f2a55 30.46%,
+          #1f2a55 60.97%
+        ); /* Dark blue gradient */
+
+        cursor: pointer;
+      }
+
+      .custom-button:hover::before,
+      .custom-button:hover::after {
+        transform: translateX(300px) skewX(-15deg);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(1); /* Scale down */
+          box-shadow: 0 0 0 0 rgba(31, 42, 85, 0.5); /* No shadow */
+        }
+        90% {
+          transform: translate(-50%, -50%) scale(1); /* Scale to normal */
+          box-shadow: 0 0 0 15px rgba(31, 42, 85, 0); /* Shadow expands */
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1); /* Scale down again */
+          box-shadow: 0 0 0 0 rgba(31, 42, 85, 0); /* No shadow */
+        }
+      }
+
+      .image-container {
+        position: relative; /* Ensure container is positioned relative */
+      }
+
+      .image-container img {
+        width: 1440px;
+        display: block; /* Ensure the image is treated as a block element */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-container">
+      <img src="JDP-1440.png" alt="JDP-1440" />
+      <button class="custom-button">Apply on Company Site</button>
+    </div>
+  </body>
+</html>
