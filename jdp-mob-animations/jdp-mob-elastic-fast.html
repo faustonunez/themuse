@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Description Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .header,
+      .apply-sticky,
+      .content img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .header img {
+        width: 375px;
+        height: auto;
+        position: relative;
+        z-index: 10;
+      }
+
+      .apply-sticky img {
+        width: 375px;
+        height: auto;
+      }
+
+      .content img {
+        width: 375px;
+        height: auto;
+        margin-top: -144px; /* Overlaps the header */
+      }
+
+      .apply-sticky {
+        display: none;
+        position: fixed;
+        top: 0; /* Stick to the top of the page */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .header {
+        width: 100%;
+        height: 144px;
+        position: relative;
+        background-color: white;
+      }
+
+      .content {
+        margin-top: 0;
+        padding-top: 0;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img src="header.png" alt="Header" />
+    </div>
+
+    <div class="apply-sticky">
+      <img src="apply-sticky.png" alt="Apply Sticky" />
+    </div>
+
+    <div class="content">
+      <img src="JDP-page.png" alt="Job Description Page" />
+    </div>
+
+    <script>
+      const applySticky = document.querySelector(".apply-sticky");
+      let isVisible = false;
+      let lastScrollTop = 0;
+
+      window.addEventListener("scroll", function () {
+        const scrollPosition =
+          window.scrollY || document.documentElement.scrollTop;
+        const scrollDown = scrollPosition > lastScrollTop;
+        lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
+
+        if (scrollPosition > 195) {
+          if (!isVisible) {
+            // Scroll up: show apply-sticky
+            isVisible = true;
+            gsap.set(applySticky, { y: -20, display: "block" });
+            gsap.to(applySticky, {
+              y: 0,
+              duration: 1,
+              ease: "power3.out",
+            });
+          } else if (scrollDown) {
+            // Scroll down: hide apply-sticky with smooth transition
+            isVisible = false;
+            gsap.to(applySticky, {
+              y: -20,
+              duration: 0.5,
+              ease: "power3.in",
+              onComplete: () => {
+                applySticky.style.display = "none";
+              },
+            });
+          }
+        } else if (isVisible) {
+          // Hide apply-sticky when scrolling above 195, regardless of direction
+          isVisible = false;
+          gsap.to(applySticky, {
+            y: -20,
+            duration: 0.5,
+            ease: "power3.in",
+            onComplete: () => {
+              applySticky.style.display = "none";
+            },
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
